@@ -1,0 +1,108 @@
+body{
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/logout.jpg");
+    overflow-x: hidden;
+    overflow-y:hidden;
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+}
+#demo{
+    font-size: 40px;
+    font-family:monospace;
+    font-style: italic;
+    text-align: center;
+    color: yellow;
+    position: absolute;
+    left: 550px;
+    top:100px
+}
+.logo{
+    position: relative;
+    left: 700px;
+    top: 180px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+h1.pos_center {
+    position: relative;
+    left: 460px;
+    top: 130px;
+    font-family: Copperplate, "Copperplate Gothic Light",fantasy;
+    color: white;
+    font-size:69pt;
+ }
+p.a {
+    position: relative;
+    left: 535px;
+    top: 90px;
+    color:white; 
+    font-family:copper plate;
+    font-size:x-large;
+}
+img {
+    position: relative;
+    top:10px;
+ }
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    color: #C0C0C0;
+}
+#logged span {
+    background : white;
+    width :33px;
+    height: 4px;
+    display: block;
+    position: relative;
+    top: 50px;
+    border-radius: 3px;
+    left: 1270px;
+    margin-bottom: 5px;
+    }
+#logged input {
+    opacity:0;
+    cursor:pointer;
+    width :40px; 
+    height: 100px;
+    position: absolute;
+    top: 16px;
+    left: 1264px;
+    z-index:4;
+ }
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 0;
+    padding: 50px;
+    padding-top: 125px;
+    right: -100px;
+    list-style:none;
+    background: transparent;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: 3px;
+    transition-duration:2s;
+}
+#logged input:checked ~ span{
+    opacity:1;
+    background: #C0C0C0;
+}
+#logged input:checked ~ ul
+{
+    transform: scale(1.0, 1.0);
+    opacity: 1;
+}
+#menu li
+{ 
+    padding: 10px 0;
+    font-size: 22px;
+    font-family:consolas;
+}

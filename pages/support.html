@@ -1,0 +1,255 @@
+<html>
+<head>
+    <title>Support|FAV.in</title>
+    <link rel="icon" href="../images/favicon.png" type="image/icon type">
+    <style>
+   body{
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 0 20px;
+        background-color: white;
+        color: black;
+    }
+    .dark-mode {
+        background-color: black;
+        color: red;
+    }
+    h1{
+        text-align: center;
+        margin: 40px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .par{
+        font-size: 24px;
+        color: black;
+        text-align: center;
+        font-family: Georgia;
+        margin-top: 50px;
+        margin-bottom:40px;
+    }
+    .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+    }
+    .container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .container img {
+        float: left;
+        max-width: 60px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+    .container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right:0;
+    }
+    .time-right {
+        float: right;
+        color: #aaa;
+    }
+    .time-left {
+        float: left;
+        color: #999;
+    }
+    input[type="text"]{
+        width: 100%;
+        position: relative;
+        margin-top: 100px;
+        margin-bottom: 0px;
+        border-left: 0;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 1px solid #999;
+        outline: none;
+        background: transparent;
+        text-align: center;
+    }
+    .send{
+        width:15px;
+        position: relative;
+        height:15px;
+        margin: 0px;
+        top: -20px;
+        margin-bottom: 40px;
+        float: right;
+        border-radius: 50%;
+        background: transparent;
+    }
+    button{
+        margin: 10px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        font-family: 'Franklinput-fieldGothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #link{
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <button onclick="myFunction()" id = "white"style="float: right;" value = "Dark Mode">Dark Mode</button>
+    <h1>FAV Support</h1>
+    
+    <div id="con">
+        <div class="container">
+            <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+            <p>Hello. How are you today?</p>
+            <span class="time-right">11:00</span>
+            </div>
+        
+            <div class="container darker">
+            <img src="../images/10.jpg" alt="Avatar" class="right" style="width:100%;">
+            <p>Hey! I'm fine. Thanks for asking!</p>
+            <span class="time-left">11:01</span>
+            </div>
+        
+            <div class="container">
+            <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+            <p>Sweet! So, what do you wanna do today?</p>
+            <span class="time-right">11:02</span>
+            </div>
+        </div>
+        <div class="typing">
+            <input type="text" id="1" placeholder="Type your Message here" onkeydown="if(event.keyCode == 13) {send()}">
+            <img src = "../images/send.png" class="send" alt ="send" onclick="send()">
+        </div>
+    
+    <script>
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        time = hours + ":" + minutes;
+        function send()
+        {
+            var user = document.getElementById("1").value;
+            document.getElementById("1").value= "";
+            document.getElementById("con").innerHTML += `<div class="container darker">
+                <img src="../images/10.jpg" alt="Avatar" class="right" style="width:100%;">
+                <p> ${user} </p>
+                <span class="time-left">${time}</span>
+            </div>`;
+            setTimeout(() => {reply(user);}, 3000);
+            //setTimeout(reply(user), 5000);
+        }
+        
+        function reply(user) {
+    
+            user = user.toLowerCase();
+            if (user.includes("hello")) {
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>How may I help you?</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("product")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p><button onclick="payment()">Payment</button>
+                <button onclick="delivery()">Delivery</button>
+                <button onclick="purchase()">Purchase</button>
+                <br>Choose any of the above options</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("status")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>Your order will deliver to you shortly</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("upi")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>We are trying our best to include more features</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("reflecting")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>It will be reflected soon! please wait</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("ok")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>Is your problem solved?</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }
+            else if(user.includes("yes")){
+                document.getElementById("con").innerHTML += `<div class="container">
+                <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+                <p>Thank you!</p>
+                <span class="time-right">${time}</span>
+                </div>`;
+            }else
+            {
+                document.getElementById("chatLog").innerHTML += "I don't understand... <br>";
+            }
+        }
+        function payment()
+        {
+            document.getElementById("con").innerHTML += `<div class="container">
+            <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+            <p>Which type of problem you are facing?</p>
+            <span class="time-right">${time}</span>
+            </div>`;
+        }
+        function delivery()
+        {
+            document.getElementById("con").innerHTML += `<div class="container">
+            <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+            <p>Describe the detail of the problem</p>
+            <span class="time-right">${time}</span>
+            </div>`;
+        }
+        function purchase()
+        {
+            document.getElementById("con").innerHTML += `<div class="container">
+            <img src="../images/favicon.png" alt="Avatar" style="width:100%;">
+            <p>What problems are you encountering while purchasing</p>
+            <span class="time-right">${time}</span>
+            </div>`;
+        }
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            document.alinkColor = "red";
+            document.getElementById("1").style.color = "red";
+            document.getElementById("text").style.color = "red";
+            document.getElementById("white").style.color = "red";
+
+            btn = document.getElementById("white");
+            if (btn.value == "Dark Mode") {
+            btn.value = "Normal";
+            btn.innerHTML = "Normal";
+            }
+            else {
+            btn.value = "Dark Mode";
+            btn.innerHTML = "Dark Mode";
+            document.getElementById("white").style.color = "black";
+            }
+        }
+    </script>
+    <div ><a id = "link"href="../pages/main.html"><p class="par" id ="text">Back to homepage →</p></a>
+        <footer style="text-align:center;" bottom="0">Copyright  &copy; FAV STORE <br> since 2020 - present <br> Developed by team FAV</center> </footer>
+    </div>       
+</body>
+</html>

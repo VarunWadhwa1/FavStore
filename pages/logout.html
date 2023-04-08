@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Logout</title>
+<link rel="stylesheet" type="text/css" href="../css/logout.css">
+<link rel="icon" href="../images/favicon.png" type="image/icon type">
+</head>
+<body onload="FAV()">	
+    <div id="Logged">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+            <li></li>
+            <li></li>
+            <a href="../pages/login.html"><li>Login/Sign Up</li></a>
+            <a href="../pages/about.html"><li>About us</li></a>
+        </ul> 
+        <p id="demo"></p>
+        <div>
+            <img class="logo" src="../images/logo.jpeg">
+            <h1 class= "pos_center">The Fav store</h1>
+            <p class="a"> • Favourite for everyone. • </p>
+        </div>
+    </div>
+    <script>
+        var i = 0;
+        var txt = 'Welcome to FAV store!!';
+        var speed = 50;
+        
+        function FAV() {
+          if (i < txt.length) {
+            document.getElementById("demo").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(FAV, speed);
+          }
+        }
+    </script>
+</body>
+</html>

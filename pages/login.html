@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <title>Loginput-fieldand Registration|FAV.in</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" href="../images/favicon.png" type="image/icon type">
+  </head>
+  <body>
+    <div class="back">
+      <div class="form-box">
+        <div class = "btn-box">
+          <div id="btn"></div>
+          <button type="button" class ="toggle-btn" onclick="login()">Log in</button>
+          <button type="button" class ="toggle-btn" onclick="register()">Register</button>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><img src="../images/fb.png"></a>
+          <a href="https://www.twitter.com/"><img src="../images/tw.png"></a>
+          <a href="https://www.instagram.com/"><img src="../images/ins.jpg"></a>
+        </div>
+        <div id="login" class="input-group">
+          <input type="text" class="input-field" id="1" placeholder="User Id" required>
+          <input type="password" class="input-field" id="pass" placeholder="Enter Password" required>
+          <button id="show" class="logshow" onclick="ShowPassword()" value="Show">Show</button>
+          <input type="checkbox" class="check-box"><span>Remember me</span>
+          <a><span onclick = "createPopupWin('../pages/forgot.html','Forgot Password', 1000, 600);">
+            Forgot Password?</span></a>
+          <button type="submit" class="submit-btn" onclick="validate()">Log in</button>
+        </div>
+        <div id="register" class="input-group">
+          <input type="text" class="input-field" id="user" placeholder="User Id" required>
+          <input type="email" class="input-field" placeholder="Email Id" required>
+          <input type="password" class="input-field" id="pass" placeholder="Enter Password" required>
+          <input type="checkbox" class="check-box" required><span>I agree to the terms and conditions</span>
+          <button type="submit" class="submit-btn" onclick="validateReg()">Register</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    
+      window.history.forward(); 
+      function noBack()
+      { 
+        window.history.forward(); 
+      } 
+      var x= document.getElementById("login");
+      var y= document.getElementById("register");
+      var z= document.getElementById("btn");
+      var attempt = 3;
+      
+      function register()
+      {
+        x.style.left="-400px";
+        y.style.left="50px";
+        z.style.left="110px";
+      }
+      function login()
+      {
+        x.style.left="50px";
+        y.style.left="450px";
+        z.style.left="0";
+      }
+      function validate()
+      {
+        var username = document.getElementById("1").value;
+        var password = document.getElementById("pass").value;
+        if ( username == "admin" && password == "123")
+        {
+          alert ("Loginput-fieldsuccessfully");
+          window.location.href = "main.html",true; 
+        }
+        else
+        {
+          attempt--;
+          alert("You have left "+attempt+" attempt;");
+          if( attempt == 0)
+          {
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.getElementById("submit").disabled = true;
+            return false;
+          }
+        }
+      }
+      function validateReg()
+      {
+        var userid = document.getElementById("user").value;
+        var pass = document.getElementById("pass").value;
+        if(userid.length>=7&&pass.length>=7)
+        {
+          login();
+        }
+        else{
+          alert("Fill the details correctly: username & password length must be >= 7");
+        }
+      }
+      function ShowPassword() {
+        
+        btn = document.getElementById("show");
+        if (btn.value == "Show") {
+          btn.value = "Hide";
+          btn.innerHTML = "Hide";
+        }
+        else {
+          btn.value = "Show";
+          btn.innerHTML = "Show";
+        }
+        var x = document.getElementById("pass");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }  
+      }
+      function createPopupWin(pageURL, pageTitle,popupWinWidth, popupWinHeight)
+      { 
+        var left = (screen.width - popupWinWidth) / 2; 
+        var top = (screen.height - popupWinHeight) / 4; 
+          
+        var myWindow = window.open(pageURL, pageTitle,  
+          'resizable=yes, width=' + popupWinWidth 
+          + ', height=' + popupWinHeight + ', top=' 
+          + top + ', left=' + left); 
+        } 
+    </script>
+  </body>
+</html>
